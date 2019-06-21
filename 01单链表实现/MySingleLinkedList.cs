@@ -11,7 +11,7 @@ namespace _01单链表实现
     {
         public MySingleLinkedList()
         {
-            //构造函数为字段赋值
+            //构造函数为字段赋值   
             count = 0;
             head = null;
         }
