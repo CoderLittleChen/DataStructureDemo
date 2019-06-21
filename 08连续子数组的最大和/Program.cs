@@ -20,6 +20,7 @@ namespace _08连续子数组的最大和
             int greatest = FindGreatestSumOfSubArray(nums, out isValidInput);
             Console.WriteLine(greatest);
             Console.ReadKey();
+
         }
 
 
