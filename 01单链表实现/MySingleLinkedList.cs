@@ -51,6 +51,7 @@ namespace _01单链表实现
             {
                 throw new ArgumentOutOfRangeException("index", "索引超出界限");
             }
+            //将头结点赋值给临时节点  
             Node<T> tempNode = head;
             for (int i = 0; i < index; i++)
             {
@@ -75,9 +76,9 @@ namespace _01单链表实现
             }
             else
             {
-                //先找到当前链表中的最后一个结点,头结点索引为0
+                //先找到当前链表中的最后一个结点,头结点索引为0 
                 Node<T> lastNode = GetNodeByIndex(count - 1);
-                //最后一个结点的Next属性指向新结点
+                //最后一个结点的Next属性指向新结点  
                 lastNode.Next = newNode;
             }
             //链表结点数量增加

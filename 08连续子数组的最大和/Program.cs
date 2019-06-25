@@ -15,9 +15,12 @@ namespace _08连续子数组的最大和
             //{1,2,3,4}  子数组  1 2  3  4  1,2   1,3  1,4  2,3  2,4  3,4   1,2,3  1,2,4  1,3,4    2,3,4   1,2,3,4
             //一个长度为n的数组，共有n(n+1)/2个连续子数组   这个是怎么计算的？
             //找出连续自己最大和  并返回  要求时间复杂度是O(n)
-            int[] nums = { 1, -2, 3, 10, -4, 7, 2, -5 };
-            bool isValidInput = true;
-            int greatest = FindGreatestSumOfSubArray(nums, out isValidInput);
+            //int[] nums = { 1, -2, 3, 10, -4, 7, 2, -5 };
+
+            //int[] nums = { -1, -2, 9, -19, 1, -23 };
+            int[] nums = null;
+            bool isValid = true;
+            int greatest = FindGreatestSumOfSubArray(nums, out isValid);
             Console.WriteLine(greatest);
             Console.ReadKey();
 
@@ -25,38 +28,39 @@ namespace _08连续子数组的最大和
 
 
         /// <summary>
-        /// 求连续自己最大和
+        /// 求连续子数组最大和
         /// </summary>
-        /// <returns></returns>
-        public static int FindGreatestSumOfSubArray(int[] array, out bool isValidInput)
+        /// <param name="nums"></param>
+        public static int FindGreatestSumOfSubArray(int[] nums, out bool isValid)
         {
-            if (array == null || array.Length == 0)
+            if (nums == null || nums.Length == 0)
             {
-                isValidInput = false;
+                isValid = false;
                 return 0;
             }
-            isValidInput = true;
-            int currSum = 0;
+            isValid = true;
+            //当前数组元素的和
+            int currentSum = 0;
+            //当前所有元素的最大和  注意这里赋值的时候  因为数组中可能存在负数  所有不能为0
             int greatestSum = int.MinValue;
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                if (currSum <= 0)
+                if (currentSum <= 0)
                 {
-                    currSum = array[i];
+                    currentSum = nums[i];
                 }
                 else
                 {
-                    currSum += array[i];
+                    currentSum += nums[i];
                 }
-                if (currSum > greatestSum)
+                if (currentSum > greatestSum)
                 {
-                    greatestSum = currSum;
+                    greatestSum = currentSum;
                 }
             }
             return greatestSum;
-
-
         }
+
 
     }
 }
